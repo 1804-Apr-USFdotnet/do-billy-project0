@@ -63,5 +63,47 @@ namespace PalindromesUnitTest
             // Assert
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void IsPlaindromeTestMethod5()
+        {
+            // Arrange
+            string forward = "1221";
+            bool expected = true;
+
+            // Act
+            bool actual = Palindromes.IsPalindrome(forward);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void IsPlaindromeTestMethod6()
+        {
+            // Arrange
+            string forward = "123";
+            bool expected = false;
+
+            // Act
+            bool actual = Palindromes.IsPalindrome(forward);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void IsPlaindromeTestMethod7()
+        {
+            // Arrange
+            string forward = "aBcDEfg";
+            bool expected = false;
+
+            // Act
+            bool actual = Palindromes.IsPalindrome(forward);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
