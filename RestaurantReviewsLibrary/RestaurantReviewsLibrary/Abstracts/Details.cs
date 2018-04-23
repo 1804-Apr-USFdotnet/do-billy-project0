@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RestaurantReviewsLibrary
+namespace RestaurantReviewsLibrary.Abstracts
 {
-    public class Class1
+    abstract class Details
     {
     }
 }
