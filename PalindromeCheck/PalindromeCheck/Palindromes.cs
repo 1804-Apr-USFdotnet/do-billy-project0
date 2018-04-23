@@ -13,7 +13,7 @@ namespace PalindromeCheck
             string reversed;
             try
             {
-                reversed = str.ToLower().Reverse().ToString();
+                reversed = new string(str.ToLower().ToCharArray().Reverse().ToArray());
             }
             catch (NullReferenceException)
             {
