@@ -10,10 +10,17 @@ namespace PalindromeCheck
     {
         public static bool IsPalindrome(string str)
         {
+            string simplified;
             string reversed;
+            bool result;
             try
             {
-                reversed = new string(str.ToLower().ToCharArray().Reverse().ToArray());
+                char[] strArr = str.ToLower().ToCharArray();
+                strArr = Array.FindAll(strArr, ((c) => Char.IsLetterOrDigit(c)));
+                simplified = new string(strArr.ToArray());
+                reversed = new string(strArr.Reverse().ToArray());
+
+                result = simplified == reversed;
             }
             catch (NullReferenceException)
             {
@@ -23,7 +30,7 @@ namespace PalindromeCheck
             {
                 throw ex;
             }
-            return str == reversed;
+            return result;
         }
     }
 }
