@@ -12,6 +12,5 @@ namespace RestaurantReviewsLibrary.Interfaces
         string ReviewerName { get; }
         string Description { get; }
         DateTime ReviewCreatedTime { get; }
-
     }
 }

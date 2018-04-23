@@ -12,5 +12,13 @@ namespace RestaurantReviewsLibrary.Models
     class Restaurant : Business
     {
         List<IReview> ListOfReviews { get; }
+
+        public double AverageRating
+        {
+            get
+            {
+                
+            }
+        }
     }
 }

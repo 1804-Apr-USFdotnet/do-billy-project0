@@ -10,5 +10,7 @@ namespace RestaurantReviewsLibrary.Models
 {
     class RestaurantDetails : BusinessDetails
     {
+        string OpenTime;
+        string ClosingTime;
     }
 }

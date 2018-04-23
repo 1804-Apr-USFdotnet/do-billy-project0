@@ -8,6 +8,10 @@ namespace RestaurantReviewsLibrary.Abstracts
 {
     abstract class BusinessDetails : Details
     {
-
+        string OwnerName;
+        string StartTime;
+        string EndTime;
+        string PhoneNumber;
+        string WebsiteURL;
     }
 }
