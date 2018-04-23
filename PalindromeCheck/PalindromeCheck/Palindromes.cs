@@ -8,16 +8,20 @@ namespace PalindromeCheck
 {
     static public class Palindromes
     {
-        static bool IsPalindrome(string str)
+        public static bool IsPalindrome(string str)
         {
             string reversed;
             try
             {
-                reversed = str.Reverse().ToString();
+                reversed = str.ToLower().Reverse().ToString();
             }
-            catch (NullReferenceException ex)
+            catch (NullReferenceException)
             {
                 return false;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
             return str == reversed;
         }
