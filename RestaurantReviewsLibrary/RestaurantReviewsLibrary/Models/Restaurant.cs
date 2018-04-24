@@ -9,7 +9,7 @@ using RestaurantReviewsLibrary.Interfaces;
 
 namespace RestaurantReviewsLibrary.Models
 {
-    class Restaurant : Business, IRestaurant
+    public class Restaurant : Business, IRestaurant
     {
         List<IReview> ListOfReviews { get; }
 
@@ -17,8 +17,27 @@ namespace RestaurantReviewsLibrary.Models
         {
             get
             {
-                return 0;
+                double total = 0.0;
+                int count = 0;
+                foreach(IReview review in ListOfReviews)
+                {
+                    total += review.Rating;
+                    ++count;
+                }
+                return total / count;
             }
         }
+
+        public Restaurant(string name, string loc)
+        {
+
+        }
+
+        public void SubmitReview(int rating, string name, string description = "")
+        {
+            ListOfReviews.Add(new review(rating, name, DateTime.Now, description));
+        }
+
+
     }
 }
