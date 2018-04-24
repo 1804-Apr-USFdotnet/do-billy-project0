@@ -6,9 +6,17 @@ using System.Threading.Tasks;
 
 namespace RestaurantReviewsLibrary.Abstracts
 {
-    abstract class Business
+    public abstract class Business
     {
         public string Name { get; set; }
         public string Location { get; set; }
+
+        protected Business() { }
+
+        protected Business(string name, string loc)
+        {
+            Name = name;
+            Location = loc;
+        }
     }
 }
