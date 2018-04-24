@@ -9,7 +9,7 @@ using RestaurantReviewsLibrary.Interfaces;
 
 namespace RestaurantReviewsLibrary.Models
 {
-    class Restaurant : Business
+    class Restaurant : Business, IRestaurant
     {
         List<IReview> ListOfReviews { get; }
 
@@ -17,7 +17,7 @@ namespace RestaurantReviewsLibrary.Models
         {
             get
             {
-                
+                return 0;
             }
         }
     }
