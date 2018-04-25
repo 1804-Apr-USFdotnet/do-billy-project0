@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RestaurantReviewsLibrary.Models
 {
-    class Dummy
+    public class Dummy
     {
         private List<List<object>> _myList;
 
@@ -24,7 +24,7 @@ namespace RestaurantReviewsLibrary.Models
             _myList.Add(new List<object> { "Pizza Place", "Tallahassee" });
         }
 
-        public List<List<object>> GetData()
+        public List<List<object>> GetRestaruantData()
         {
             return _myList;
         }

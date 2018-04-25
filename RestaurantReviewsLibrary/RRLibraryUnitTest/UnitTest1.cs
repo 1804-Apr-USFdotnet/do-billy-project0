@@ -61,7 +61,8 @@ namespace RRLibraryUnitTest
         public void GetSerializedDataTestMethod()
         {
             RestaurantsList restaurantsList = new RestaurantsList();
-            int expected = 7;
+            Dummy d = new RestaurantReviewsLibrary.Models.Dummy();
+            int expected = d.GetRestaruantData().Count;
 
             restaurantsList.GetSerializedData();
             int actual = restaurantsList.List.Count;

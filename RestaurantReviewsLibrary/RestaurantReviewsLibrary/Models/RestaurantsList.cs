@@ -43,7 +43,7 @@ namespace RestaurantReviewsLibrary.Models
             // Intends to get data from serialized data, and populate the list of restaurants
             // TODO: probably shouldn't be here? Delete?
             Dummy d = new Dummy();
-            foreach (var data in d.GetData())
+            foreach (var data in d.GetRestaruantData())
             {
                 AddRestaurant((string)data[0], (string)data[1]);
             }
