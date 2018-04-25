@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RestaurantReviewsLibrary.Interfaces
 {
-    interface IReview
+    public interface IReview
     {
         int Rating { get; }
         string ReviewerName { get; }
