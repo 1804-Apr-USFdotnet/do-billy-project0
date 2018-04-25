@@ -25,15 +25,29 @@ namespace RestaurantReviewsLibrary.Models
             _myList = new List<Restaurant>();
         }
 
-        private void AddRestaurant()
+        private void AddRestaurant(string name, string loc)
         {
+            _myList.Add(new Restaurant(name, loc));
+        }
 
+        public void GetTopAverageRatings()
+        {
+            //TODO
+            _myList.OrderBy(c => c.AverageRating).Take(3);
+            throw new NotImplementedException();
+            
         }
 
         private void GetSerializedData()
         {
             // Intends to get data from serialized data, and populate the list of restaurants
             // TODO: probably shouldn't be here? Delete?
+            Dummy d = new Dummy();
+            foreach (var data in d.GetData())
+            {
+                AddRestaurant((string)data[0], (string)data[1]);
+            }
+
         }
 
         private void OutputSerializedData()
