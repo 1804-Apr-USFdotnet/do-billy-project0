@@ -17,6 +17,10 @@ namespace RestaurantReviewsLibrary.Models
         {
             get
             {
+                if (!(ListOfReviews.Count > 0))
+                {
+                    return 0;
+                }
                 double sum = 0.0;
                 foreach(IReview review in ListOfReviews)
                 {
@@ -32,7 +36,7 @@ namespace RestaurantReviewsLibrary.Models
 
         public void SubmitReview(int rating, string name, string description = "")
         {
-            ListOfReviews.Add(new review(rating, name, DateTime.Now, description));
+            ListOfReviews.Add(new Review(rating, name, DateTime.Now, description));
         }
 
         public List<IReview> GetAllReviews()

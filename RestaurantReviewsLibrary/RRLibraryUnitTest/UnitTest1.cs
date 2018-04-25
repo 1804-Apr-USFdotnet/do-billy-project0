@@ -26,7 +26,7 @@ namespace RRLibraryUnitTest
             string expectedName = "John Doe";
             string expectedDesc = "";
 
-            review testObj = new review(expectedRating, expectedName, expectedTimeCreation);
+            Review testObj = new Review(expectedRating, expectedName, expectedTimeCreation);
 
             Assert.AreEqual(expectedRating, testObj.Rating);
             Assert.AreEqual(expectedName, testObj.ReviewerName);
@@ -43,7 +43,7 @@ namespace RRLibraryUnitTest
             string expectedName = "Harrison Gerbil Ulysses";
             string expectedDesc = "I'm pretty sure a rat swam in my soup.";
 
-            review testObj = new review(expectedRating, expectedName, expectedTimeCreation, expectedDesc);
+            Review testObj = new Review(expectedRating, expectedName, expectedTimeCreation, expectedDesc);
 
             Assert.AreEqual(expectedRating, testObj.Rating);
             Assert.AreEqual(expectedName, testObj.ReviewerName);

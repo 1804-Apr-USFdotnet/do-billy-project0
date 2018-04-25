@@ -8,7 +8,7 @@ using RestaurantReviewsLibrary.Interfaces;
 
 namespace RestaurantReviewsLibrary.Models
 {
-    public class review : IReview
+    public class Review : IReview
     {
         public int Rating { get; }
         public string ReviewerName { get; }
@@ -16,9 +16,9 @@ namespace RestaurantReviewsLibrary.Models
         public DateTime ReviewCreatedTime { get; }
 
         // private default: Don't want to create a Review with no data
-        private review() { }
+        private Review() { }
 
-        public review(int rating, string name, DateTime time, string description = "")
+        public Review(int rating, string name, DateTime time, string description = "")
         {
             // TODO: Check for correct rating range (1-5?)
             Rating = rating;
