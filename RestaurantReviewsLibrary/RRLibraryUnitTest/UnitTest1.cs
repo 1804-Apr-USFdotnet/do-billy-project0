@@ -56,6 +56,18 @@ namespace RRLibraryUnitTest
     [TestClass]
     public class RestaurantsListUnitTest
     {
+
+        [TestMethod]
+        public void GetSerializedDataTestMethod()
+        {
+            RestaurantsList restaurantsList = new RestaurantsList();
+            int expected = 7;
+
+            restaurantsList.GetSerializedData();
+            int actual = restaurantsList.List.Count;
+
+            Assert.AreEqual(expected, actual);
+        }
         [TestMethod]
         public void GetTopAverageRatingsTestMethod()
         {

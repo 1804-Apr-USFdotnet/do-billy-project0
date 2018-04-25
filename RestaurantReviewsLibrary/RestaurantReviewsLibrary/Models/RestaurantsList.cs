@@ -38,7 +38,7 @@ namespace RestaurantReviewsLibrary.Models
             
         }
 
-        private void GetSerializedData()
+        public void GetSerializedData()
         {
             // Intends to get data from serialized data, and populate the list of restaurants
             // TODO: probably shouldn't be here? Delete?
@@ -50,9 +50,5 @@ namespace RestaurantReviewsLibrary.Models
 
         }
 
-        private void OutputSerializedData()
-        {
-            //create data, then serialize it to JSON
-        }
     }
 }

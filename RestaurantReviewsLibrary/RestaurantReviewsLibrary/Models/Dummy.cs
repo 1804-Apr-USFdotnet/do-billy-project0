@@ -12,6 +12,8 @@ namespace RestaurantReviewsLibrary.Models
 
         public Dummy()
         {
+            _myList = new List<List<object>>();
+
             //populate list with dummy data
             _myList.Add(new List<object> { "Pizza Place", "Tampa" });
             _myList.Add(new List<object> { "Mission BBQ", "Tampa" });
@@ -25,6 +27,11 @@ namespace RestaurantReviewsLibrary.Models
         public List<List<object>> GetData()
         {
             return _myList;
+        }
+
+        public void OutputSerialzedData()
+        {
+            //TODO
         }
     }
 }
