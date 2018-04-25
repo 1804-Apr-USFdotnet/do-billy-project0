@@ -57,8 +57,12 @@ namespace RRLibraryUnitTest
     public class RestaurantsListUnitTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void GetTopAverageRatingsTestMethod()
         {
+            RestaurantsList restaurantsList = new RestaurantsList();
+            
+
+
             Assert.AreEqual(false, true);
         }
     }

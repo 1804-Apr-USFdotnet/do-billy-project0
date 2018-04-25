@@ -11,31 +11,35 @@ namespace RestaurantReviewsLibrary.Models
 {
     public class Restaurant : Business, IRestaurant
     {
-        List<IReview> ListOfReviews { get; }
+        private List<IReview> ListOfReviews;
 
         public double AverageRating
         {
             get
             {
-                double total = 0.0;
-                int count = 0;
+                double sum = 0.0;
                 foreach(IReview review in ListOfReviews)
                 {
-                    total += review.Rating;
-                    ++count;
+                    sum += review.Rating;
                 }
-                return total / count;
+                return sum / ListOfReviews.Count;
             }
         }
 
-        public Restaurant(string name, string loc)
+        public Restaurant(string name, string loc) : base(name, loc)
         {
-
         }
 
         public void SubmitReview(int rating, string name, string description = "")
         {
             ListOfReviews.Add(new review(rating, name, DateTime.Now, description));
+        }
+
+        public List<IReview> GetAllReviews()
+        {
+            // copy of ListOfReviews?
+            // ListOfReviews is private
+            return ListOfReviews;
         }
 
 
