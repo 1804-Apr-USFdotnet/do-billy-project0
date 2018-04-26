@@ -25,22 +25,29 @@ namespace RestaurantReviewsLibrary.Models
             _myRestaurantList.Add(new List<object> { "Checkers", "Florida" });
             _myRestaurantList.Add(new List<object> { "Pizza Place", "Tallahassee" });
 
+            // Pizza Place in Tampa has 3 reviews
             _myReviewList.Add(new List<object> { 1, "Piper Doe" });
             _myReviewList.Add(new List<object> { 3, "Penelope Doe" });
             _myReviewList.Add(new List<object> { 4, "Pepper Potts" });
+            // Mission BBQ has 2 reviews
             _myReviewList.Add(new List<object> { 4, "Mary Jane" });
             _myReviewList.Add(new List<object> { 2, "Moses" });
+            // Wendys has 1 review
             _myReviewList.Add(new List<object> { 3, "Wario" });
+            // Franklin BBQ has 2 reviews
             _myReviewList.Add(new List<object> { 5, "Franklin" });
             _myReviewList.Add(new List<object> { 5, "Fartso Mcgee" });
+            // Chuck E Cheese has 4 reviews
             _myReviewList.Add(new List<object> { 1, "Chuuni Byou" });
             _myReviewList.Add(new List<object> { 2, "Child Name" });
             _myReviewList.Add(new List<object> { 1, "Check" });
             _myReviewList.Add(new List<object> { 1, "Charles" });
-            _myReviewList.Add(new List<object> { 5, "John Doe" });
-            _myReviewList.Add(new List<object> { 5, "John Doe" });
-            _myReviewList.Add(new List<object> { 5, "John Doe" });
-            _myReviewList.Add(new List<object> { 5, "John Doe" });
+            // Checkershas 2 reviews
+            _myReviewList.Add(new List<object> { 3, "Cheep Byrd" });
+            _myReviewList.Add(new List<object> { 4, "Cheese Burgler" });
+            // Pizza Place in Tallahassee has 3 reviews
+            _myReviewList.Add(new List<object> { 4, "Tom Cruises" });
+            _myReviewList.Add(new List<object> { 4, "Anne Castaway" });
         }
 
         public List<List<object>> GetRestaruantData()
