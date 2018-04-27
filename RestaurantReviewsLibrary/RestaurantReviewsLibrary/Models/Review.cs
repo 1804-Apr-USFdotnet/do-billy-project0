@@ -28,13 +28,14 @@ namespace RestaurantReviewsLibrary.Models
         {
             ReviewId = idCount++;
             RestaurantId = restId;
-            if (rating < 0)
+            if (rating <= 0)
             {
                 Rating = 0;
             }
-            else if (rating > 5)
+            else
             {
-                Rating = 5;
+                Rating = Math.Min(5, rating);
+                
             }
             ReviewerName = name;
             DateCreated = time;
