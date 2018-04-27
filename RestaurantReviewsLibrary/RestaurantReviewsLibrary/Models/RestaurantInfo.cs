@@ -45,7 +45,7 @@ namespace RestaurantReviewsLibrary.Models
 
         public void SubmitReview(string name, int rating, string description = "")
         {
-            ListOfReviews.Add(new Review(rating, name, DateTime.Now, description));
+            ListOfReviews.Add(new Review(rating, this.Id, name, DateTime.Now, description));
         }
 
         public IEnumerable<IReview> GetAllReviews()
