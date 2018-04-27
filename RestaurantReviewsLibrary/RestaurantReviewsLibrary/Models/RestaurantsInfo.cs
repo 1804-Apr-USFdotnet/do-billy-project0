@@ -4,13 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using RestaurantReviewsLibrary.Interfaces;
+
 namespace RestaurantReviewsLibrary.Models
 {
-    public class RestaurantsInfo
+    public class RestaurantsInfo : IRestaurantsInfo
     {
+        // ----------
+        // Properties
+        // ----------
         protected List<RestaurantInfo> _myList;
 
-        public List<RestaurantInfo> List
+        public IEnumerable<RestaurantInfo> List
         {
             get
             {
@@ -18,21 +23,26 @@ namespace RestaurantReviewsLibrary.Models
             }
         }
 
-
-
+        // ------------
+        // Constructors
+        // ------------
         public RestaurantsInfo()
         {
             _myList = new List<RestaurantInfo>();
         }
 
-        private void AddRestaurant(string name, string loc)
+        // -------
+        // Methods
+        // -------
+
+        internal void AddRestaurant(string name, string loc)
         {
             _myList.Add(new RestaurantInfo(name, loc));
         }
 
         public void GetTopAverageRatings()
         {
-            //TODO
+            //TODO: Implement
             _myList.OrderBy(c => c.AverageRating).Take(3);
             throw new NotImplementedException();
             
@@ -50,5 +60,40 @@ namespace RestaurantReviewsLibrary.Models
 
         }
 
+        public IEnumerable<IRestaurantsInfo> GetTopRestaurants(int n)
+        {
+            //TODO: implement
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<IRestaurantInfo> GetAllRestaurants()
+        {
+            //TODO: implement
+            throw new NotImplementedException();
+        }
+
+        public IRestaurantInfo GetRestaurantDetail(int id)
+        {
+            //TODO: implement
+            throw new NotImplementedException();
+        }
+
+        public IRestaurantInfo GetRestaurantDetail(string name)
+        {
+            //TODO: implement
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<IReview> GetRestaurantReviews()
+        {
+            //TODO: implement
+            throw new NotImplementedException();
+        }
+
+        public IRestaurantInfo SearchRestaurant(string searchQuery)
+        {
+            //TODO: implement
+            throw new NotImplementedException();
+        }
     }
 }

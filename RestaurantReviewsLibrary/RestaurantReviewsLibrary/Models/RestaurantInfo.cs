@@ -14,6 +14,7 @@ namespace RestaurantReviewsLibrary.Models
         private List<IReview> ListOfReviews;
         private static int idCount = 0;
 
+        // Properties
         public double AverageRating
         {
             get
@@ -31,10 +32,8 @@ namespace RestaurantReviewsLibrary.Models
             }
         }
 
-        private RestaurantInfo(): base()
-        {
-            //do not implement
-        }
+        // Constructors
+        private RestaurantInfo(): base() { /* do not implement */ }
 
         public RestaurantInfo(string name, string loc) : base(name, loc)
         {
@@ -42,7 +41,9 @@ namespace RestaurantReviewsLibrary.Models
             ListOfReviews = new List<IReview>();
         }
 
-        public void SubmitReview(int rating, string name, string description = "")
+        // Methods
+
+        public void SubmitReview(string name, int rating, string description = "")
         {
             ListOfReviews.Add(new Review(rating, name, DateTime.Now, description));
         }

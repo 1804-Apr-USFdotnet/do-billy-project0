@@ -13,17 +13,23 @@ namespace RestaurantReviewsLibrary.Models
         public int Rating { get; }
         public string ReviewerName { get; }
         public string Description { get; }
-        public DateTime ReviewCreatedTime { get; }
+        public DateTime DateCreated { get; }
 
         // private default: Don't want to create a Review with no data
         private Review() { }
 
         public Review(int rating, string name, DateTime time, string description = "")
         {
-            // TODO: Check for correct rating range (1-5?)
-            Rating = rating;
+            if (rating < 0)
+            {
+                Rating = 0;
+            }
+            else if (rating > 5)
+            {
+                Rating = 5;
+            }
             ReviewerName = name;
-            ReviewCreatedTime = time;
+            DateCreated = time;
             Description = description;
         }
     }
