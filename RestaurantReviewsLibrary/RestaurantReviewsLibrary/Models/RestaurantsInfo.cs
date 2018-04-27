@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RestaurantReviewsLibrary.Models
 {
-    public class RestaurantsList
+    public class RestaurantsInfo
     {
         protected List<RestaurantInfo> _myList;
 
@@ -20,7 +20,7 @@ namespace RestaurantReviewsLibrary.Models
 
 
 
-        public RestaurantsList()
+        public RestaurantsInfo()
         {
             _myList = new List<RestaurantInfo>();
         }

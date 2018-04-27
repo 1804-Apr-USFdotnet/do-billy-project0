@@ -60,7 +60,7 @@ namespace RRLibraryUnitTest
         [TestMethod]
         public void GetSerializedDataTestMethod()
         {
-            RestaurantsList restaurantsList = new RestaurantsList();
+            RestaurantsInfo restaurantsList = new RestaurantsInfo();
             Dummy d = new RestaurantReviewsLibrary.Models.Dummy();
             int expected = d.GetRestaruantData().Count;
 
@@ -72,7 +72,7 @@ namespace RRLibraryUnitTest
         [TestMethod]
         public void GetTopAverageRatingsTestMethod()
         {
-            RestaurantsList restaurantsList = new RestaurantsList();
+            RestaurantsInfo restaurantsList = new RestaurantsInfo();
             
 
 
