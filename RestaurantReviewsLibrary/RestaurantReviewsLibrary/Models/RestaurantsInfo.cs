@@ -15,7 +15,7 @@ namespace RestaurantReviewsLibrary.Models
         // ----------
         protected List<RestaurantInfo> _myList;
 
-        public IEnumerable<RestaurantInfo> List
+        public IEnumerable<RestaurantInfo> ListOfRestaurants
         {
             get
             {
@@ -43,7 +43,7 @@ namespace RestaurantReviewsLibrary.Models
         public void GetTopAverageRatings()
         {
             //TODO: Implement
-            _myList.OrderBy(c => c.AverageRating).Take(3);
+            _myList.OrderBy(c => c.GetAverageRating).Take(3);
             throw new NotImplementedException();
             
         }
@@ -58,6 +58,12 @@ namespace RestaurantReviewsLibrary.Models
                 AddRestaurant((string)data[0], (string)data[1]);
             }
 
+        }
+
+        public void GetData()
+        {
+            //TODO: Make work with Serialized data, or database
+            throw new NotImplementedException();
         }
 
         public IEnumerable<IRestaurantsInfo> GetTopRestaurants(int n)
@@ -84,7 +90,7 @@ namespace RestaurantReviewsLibrary.Models
             throw new NotImplementedException();
         }
 
-        public IEnumerable<IReview> GetRestaurantReviews()
+        public IEnumerable<IReview> GetAllReviews()
         {
             //TODO: implement
             throw new NotImplementedException();

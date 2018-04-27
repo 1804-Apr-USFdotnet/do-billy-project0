@@ -12,7 +12,7 @@ namespace RestaurantReviewsLibrary.Interfaces
         IEnumerable<IRestaurantInfo> GetAllRestaurants();
         IRestaurantInfo GetRestaurantDetail(int id);
         IRestaurantInfo GetRestaurantDetail(string name);
-        IEnumerable<IReview> GetRestaurantReviews();
+        IEnumerable<IReview> GetAllReviews();
         IRestaurantInfo SearchRestaurant(string searchQuery);
     }
 }
