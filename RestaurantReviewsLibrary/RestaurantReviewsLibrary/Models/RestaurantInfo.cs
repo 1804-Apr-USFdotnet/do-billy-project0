@@ -32,6 +32,14 @@ namespace RestaurantReviewsLibrary.Models
             }
         }
 
+        public int ReviewCount
+        {
+            get
+            {
+                return ListOfReviews.Count;
+            }
+        }
+
         // Constructors
         private RestaurantInfo(): base() { /* do not implement */ }
 
@@ -43,9 +51,11 @@ namespace RestaurantReviewsLibrary.Models
 
         // Methods
 
-        public void SubmitReview(string name, int rating, string description = "")
+        public int SubmitReview(string name, int rating, string description = "")
         {
-            ListOfReviews.Add(new Review(rating, this.Id, name, DateTime.Now, description));
+            Review r = new Review(rating, this.Id, name, DateTime.Now, description);
+            ListOfReviews.Add(r);
+            return r.ReviewId;
         }
 
         public IEnumerable<IReview> GetAllReviews()

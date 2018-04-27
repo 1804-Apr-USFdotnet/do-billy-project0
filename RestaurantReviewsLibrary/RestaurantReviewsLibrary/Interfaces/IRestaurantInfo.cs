@@ -11,7 +11,7 @@ namespace RestaurantReviewsLibrary.Interfaces
         double GetAverageRating { get; }
         string Name { get; }
 
-        void SubmitReview(string name, int rating, string desc);
+        int SubmitReview(string name, int rating, string desc);
         IEnumerable<IReview> GetAllReviews();
     }
 }
