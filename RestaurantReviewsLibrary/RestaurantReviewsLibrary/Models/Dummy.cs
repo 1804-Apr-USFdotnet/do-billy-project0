@@ -27,26 +27,26 @@ namespace RestaurantReviewsLibrary.Models
 
             // Pizza Place in Tampa has 3 reviews
             _myReviewList.Add(new List<object> { 1, "Piper Doe" });
-            _myReviewList.Add(new List<object> { 3, "Penelope Doe" });
+            _myReviewList.Add(new List<object> { 3, "Penelope Doe", "It's pizza." });
             _myReviewList.Add(new List<object> { 4, "Pepper Potts" });
             // Mission BBQ has 2 reviews
-            _myReviewList.Add(new List<object> { 4, "Mary Jane" });
-            _myReviewList.Add(new List<object> { 2, "Moses" });
+            _myReviewList.Add(new List<object> { 4, "Mary Jane", "Pretty good BBQ." });
+            _myReviewList.Add(new List<object> { 2, "Moses", "Decent food, but way too expensive." });
             // Wendys has 1 review
-            _myReviewList.Add(new List<object> { 3, "Wario" });
+            _myReviewList.Add(new List<object> { 3, "Wario", "WAAAAAHHHAAAAHAAAAHHH" });
             // Franklin BBQ has 2 reviews
-            _myReviewList.Add(new List<object> { 5, "Franklin" });
-            _myReviewList.Add(new List<object> { 5, "Fartso Mcgee" });
+            _myReviewList.Add(new List<object> { 5, "Franklin", "THE BEST bbq in the world!!!!" });
+            _myReviewList.Add(new List<object> { 5, "Fartso Mcgee", "Long lines, but worth the wait." });
             // Chuck E Cheese has 4 reviews
             _myReviewList.Add(new List<object> { 1, "Chuuni Byou" });
-            _myReviewList.Add(new List<object> { 2, "Child Name" });
-            _myReviewList.Add(new List<object> { 1, "Check" });
+            _myReviewList.Add(new List<object> { 2, "Child Name", "PIZZAGAMESPIZZAGAMESPIZZAGAMES" });
+            _myReviewList.Add(new List<object> { 1, "Check", "Saw a huge rat, nobody else seemed to mind..." });
             _myReviewList.Add(new List<object> { 1, "Charles" });
             // Checkershas 2 reviews
-            _myReviewList.Add(new List<object> { 3, "Cheep Byrd" });
-            _myReviewList.Add(new List<object> { 4, "Cheese Burgler" });
+            _myReviewList.Add(new List<object> { 3, "Cheep Byrd", "Cheap, okay food." });
+            _myReviewList.Add(new List<object> { 4, "Cheese Burgler", "Nearly as good as my usual go-to!" });
             // Pizza Place in Tallahassee has 3 reviews
-            _myReviewList.Add(new List<object> { 4, "Tom Cruises" });
+            _myReviewList.Add(new List<object> { 4, "Tom Cruises", "Great place to host my scientology meetings." });
             _myReviewList.Add(new List<object> { 4, "Anne Castaway" });
         }
 
