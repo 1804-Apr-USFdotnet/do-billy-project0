@@ -8,9 +8,9 @@ namespace RestaurantReviewsLibrary.Models
 {
     public class RestaurantsList
     {
-        protected List<Restaurant> _myList;
+        protected List<RestaurantInfo> _myList;
 
-        public List<Restaurant> List
+        public List<RestaurantInfo> List
         {
             get
             {
@@ -22,12 +22,12 @@ namespace RestaurantReviewsLibrary.Models
 
         public RestaurantsList()
         {
-            _myList = new List<Restaurant>();
+            _myList = new List<RestaurantInfo>();
         }
 
         private void AddRestaurant(string name, string loc)
         {
-            _myList.Add(new Restaurant(name, loc));
+            _myList.Add(new RestaurantInfo(name, loc));
         }
 
         public void GetTopAverageRatings()
