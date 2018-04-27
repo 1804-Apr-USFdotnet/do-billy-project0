@@ -8,6 +8,7 @@ namespace RestaurantReviewsLibrary.Interfaces
 {
     public interface IReview
     {
+        int ReviewId { get; }
         int Rating { get; }
         string ReviewerName { get; }
         string Description { get; }

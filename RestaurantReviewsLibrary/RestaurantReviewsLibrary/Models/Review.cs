@@ -10,6 +10,9 @@ namespace RestaurantReviewsLibrary.Models
 {
     public class Review : IReview
     {
+        private static int idCount = 1;
+
+        public int ReviewId { get; }
         public int Rating { get; }
         public string ReviewerName { get; }
         public string Description { get; }
@@ -20,6 +23,7 @@ namespace RestaurantReviewsLibrary.Models
 
         public Review(int rating, string name, DateTime time, string description = "")
         {
+            ReviewId = idCount++;
             if (rating < 0)
             {
                 Rating = 0;
