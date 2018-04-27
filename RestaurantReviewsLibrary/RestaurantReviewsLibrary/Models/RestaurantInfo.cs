@@ -12,6 +12,7 @@ namespace RestaurantReviewsLibrary.Models
     public class RestaurantInfo : Business, IRestaurantInfo
     {
         private List<IReview> ListOfReviews;
+        private static int idCount = 0;
 
         public double AverageRating
         {
@@ -30,8 +31,15 @@ namespace RestaurantReviewsLibrary.Models
             }
         }
 
+        private RestaurantInfo(): base()
+        {
+            //do not implement
+        }
+
         public RestaurantInfo(string name, string loc) : base(name, loc)
         {
+            Id = idCount++;
+            ListOfReviews = new List<IReview>();
         }
 
         public void SubmitReview(int rating, string name, string description = "")
