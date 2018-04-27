@@ -12,10 +12,10 @@ namespace RestaurantReviewsLibrary.Models
     public class RestaurantInfo : Business, IRestaurantInfo
     {
         private List<IReview> ListOfReviews;
-        private static int idCount = 0;
+        private static int idCount = 1;
 
         // Properties
-        public double AverageRating
+        public double GetAverageRating
         {
             get
             {
@@ -48,13 +48,11 @@ namespace RestaurantReviewsLibrary.Models
             ListOfReviews.Add(new Review(rating, name, DateTime.Now, description));
         }
 
-        public List<IReview> GetAllReviews()
+        public IEnumerable<IReview> GetAllReviews()
         {
             // copy of ListOfReviews?
             // ListOfReviews is private
             return ListOfReviews;
         }
-
-
     }
 }
