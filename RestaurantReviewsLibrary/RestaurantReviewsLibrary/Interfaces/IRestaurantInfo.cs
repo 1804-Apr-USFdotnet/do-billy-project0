@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace RestaurantReviewsLibrary.Interfaces
 {
-    interface IRestaurantInfo
+    public interface IRestaurantInfo
     {
+        double GetAverageRating { get; }
+        string Name { get; }
+
+        void SubmitReview(string name, int rating, string desc);
+        IEnumerable<IReview> GetAllReviews();
     }
 }
