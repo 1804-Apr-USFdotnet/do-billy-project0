@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 using RestaurantReviewsLibrary.Interfaces;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace RestaurantReviewsLibrary.Models
 {
@@ -29,6 +31,7 @@ namespace RestaurantReviewsLibrary.Models
         public RestaurantsInfo()
         {
             _myList = new List<RestaurantInfo>();
+            GetSerializedData();
         }
 
         // -------
@@ -40,11 +43,10 @@ namespace RestaurantReviewsLibrary.Models
             _myList.Add(new RestaurantInfo(name, loc));
         }
 
-        public void GetTopAverageRatings()
+        public IEnumerable<IRestaurantInfo> GetTopAverageRatings()
         {
-            //TODO: Implement
-            _myList.OrderBy(c => c.GetAverageRating).Take(3);
-            throw new NotImplementedException();
+            return _myList.OrderBy(c => c.GetAverageRating).Take(3);
+            //throw new NotImplementedException();
             
         }
 
@@ -58,6 +60,19 @@ namespace RestaurantReviewsLibrary.Models
                 AddRestaurant((string)data[0], (string)data[1]);
             }
 
+        }
+
+        private void OutputToSerializedXml()
+        {
+            string filename = @"Data\RestaurantsInfo.xml";
+            if (File.Exists(filename))
+            {
+                XmlSerializer x = new XmlSerializer(this.GetType());
+                TextWriter writer = new StreamWriter(filename);
+            }
+
+            
+            
         }
 
         public void GetData()
