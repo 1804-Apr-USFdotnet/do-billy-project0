@@ -30,12 +30,30 @@ namespace RestaurantReviewsLibrary.Models.Tests
             string expName = "Tatsuya Ramen";
             string expLocation = "123 Fake St.";
             double expRating = 0.0;
-
             RestaurantInfo testObj = new RestaurantInfo(expName, expLocation);
+
+            double actualVal = testObj.GetAverageRating;
 
             Assert.AreEqual(expName, testObj.Name);
             Assert.AreEqual(expLocation, testObj.Location);
-            Assert.AreEqual(expRating, testObj.GetAverageRating);
+            Assert.AreEqual(expRating, actualVal);
+        }
+
+        [TestMethod()]
+        public void RestaurantInfoGetAverageRatingTest2()
+        {
+            string expName = "TGIFridays";
+            string expLocation = "4568 Main Street";
+            double expRating = 2.5;
+            RestaurantInfo testObj = new RestaurantInfo(expName, expLocation);
+            testObj.SubmitReview("Reviewer1", 4);
+            testObj.SubmitReview("Reviewer1", 1, "Review Description");
+
+            double actualVal = testObj.GetAverageRating;
+
+            Assert.AreEqual(expName, testObj.Name);
+            Assert.AreEqual(expLocation, testObj.Location);
+            Assert.AreEqual(expRating, actualVal);
         }
 
 
