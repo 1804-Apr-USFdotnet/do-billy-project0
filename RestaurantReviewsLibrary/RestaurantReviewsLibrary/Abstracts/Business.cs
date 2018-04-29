@@ -8,7 +8,6 @@ namespace RestaurantReviewsLibrary.Abstracts
 {
     public abstract class Business
     {
-        public int Id { get; protected set; }
         public string Name { get; set; }
         public string Location { get; set; }
 

@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 using RestaurantReviewsLibrary.Abstracts;
 using RestaurantReviewsLibrary.Interfaces;
 
 namespace RestaurantReviewsLibrary.Models
 {
+    [DataContract]
     public class RestaurantInfo : Business, IRestaurantInfo
-    {
+    { 
+        [DataMember]
         private List<IReview> ListOfReviews;
-        private static int idCount = 1;
 
         // Properties
         public double GetAverageRating
@@ -50,7 +52,6 @@ namespace RestaurantReviewsLibrary.Models
         }
 
         // Methods
-
         public int SubmitReview(string name, int rating, string description = "")
         {
             Review r = new Review(rating, this.Id, name, DateTime.Now, description);

@@ -8,15 +8,14 @@ using RestaurantReviewsLibrary.Interfaces;
 
 namespace RestaurantReviewsLibrary.Models
 {
+    [Serializable]
     public class Review : IReview
     {
         // fields
         private static int idCount = 1;
 
         // properties
-        public int ReviewId { get; }
         public int Rating { get; }
-        public int RestaurantId { get; }
         public string ReviewerName { get; }
         public string Description { get; }
         public DateTime DateCreated { get; }
