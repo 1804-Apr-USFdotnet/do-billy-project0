@@ -57,7 +57,8 @@ namespace RestaurantReviewsLibrary.Models
             if (File.Exists(xmlFilename))
             {
 
-            } else
+            }
+            else
             {
                 Dummy d = new Dummy();
                 foreach (var data in d.GetRestaruantData())
@@ -66,7 +67,6 @@ namespace RestaurantReviewsLibrary.Models
                 }
             }
             
-
         }
 
         private void OutputToSerializedXml()

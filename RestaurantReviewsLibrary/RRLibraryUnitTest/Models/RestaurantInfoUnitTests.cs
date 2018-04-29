@@ -56,7 +56,6 @@ namespace RestaurantReviewsLibrary.Models.Tests
             Assert.AreEqual(expRating, actualVal);
         }
 
-
         [TestMethod()]
         public void SubmitReviewTest()
         {
@@ -66,12 +65,14 @@ namespace RestaurantReviewsLibrary.Models.Tests
             RestaurantInfo rest = new RestaurantInfo("name", "loc");
 
             int revId = rest.SubmitReview(expReviewerName, expRating);
+            
 
             Assert.IsTrue(revId > 0);
+            Assert.IsTrue(rest.ReviewCount > 0);
         }
 
         [TestMethod()]
-        public void GetAllReviewsTest()
+        public void GetAllReviewsTest1()
         {
             string expName = "Restaurant1";
             string expLocation = "123 One St.";
@@ -79,7 +80,33 @@ namespace RestaurantReviewsLibrary.Models.Tests
 
             var l = rest.GetAllReviews();
 
-            Assert.Fail();
+            foreach (var review in l)
+            {
+                Assert.Fail();
+            }
+            Assert.IsTrue(l.Count() == 0);
+        }
+
+        [TestMethod()]
+        public void GetAllReviewsTest2()
+        {
+            string expName = "Restaurant1";
+            string expLocation = "123 One St.";
+            RestaurantInfo rest = new RestaurantInfo(expName, expLocation);
+            rest.SubmitReview("Reviewer1", 5);
+            rest.SubmitReview("Reviewer2", 4);
+            rest.SubmitReview("Reviewer3", 3);
+            rest.SubmitReview("Reviewer4", 2);
+            rest.SubmitReview("Reviewer5", 1);
+
+            var l = rest.GetAllReviews();
+
+            foreach (var review in l)
+            {
+                Assert.AreEqual(review.ReviewerName.Length, 9);
+                Assert.AreEqual(review.RestaurantId, rest.Id);
+            }
+            Assert.IsTrue(l.Count() == 05);
         }
     }
 }
