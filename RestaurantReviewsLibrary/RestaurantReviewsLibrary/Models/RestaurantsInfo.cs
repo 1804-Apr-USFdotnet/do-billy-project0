@@ -12,6 +12,7 @@ namespace RestaurantReviewsLibrary.Models
 {
     public class RestaurantsInfo : IRestaurantsInfo
     {
+        private string xmlFilename = @"Data\RestaurantsInfo.xml";
         // ----------
         // Properties
         // ----------
@@ -64,20 +65,19 @@ namespace RestaurantReviewsLibrary.Models
 
         private void OutputToSerializedXml()
         {
-            string filename = @"Data\RestaurantsInfo.xml";
-            if (File.Exists(filename))
+            if (!File.Exists(xmlFilename))
             {
                 XmlSerializer x = new XmlSerializer(this.GetType());
-                TextWriter writer = new StreamWriter(filename);
+                TextWriter writer = new StreamWriter(xmlFilename);
+                x.Serialize(writer, this);
             }
-
-            
             
         }
 
         public void GetData()
         {
             //TODO: Make work with Serialized data, or database
+            if (File.Exists())
             throw new NotImplementedException();
         }
 
