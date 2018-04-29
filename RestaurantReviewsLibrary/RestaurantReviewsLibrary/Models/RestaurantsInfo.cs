@@ -12,7 +12,7 @@ namespace RestaurantReviewsLibrary.Models
 {
     public class RestaurantsInfo : IRestaurantsInfo
     {
-        private string xmlFilename = @"Data\RestaurantsInfo.xml";
+        private static string xmlFilename = @"Data\RestaurantsInfo.xml";
         // ----------
         // Properties
         // ----------
@@ -46,8 +46,7 @@ namespace RestaurantReviewsLibrary.Models
 
         public IEnumerable<IRestaurantInfo> GetTopAverageRatings()
         {
-            return _myList.OrderBy(c => c.GetAverageRating).Take(3);
-            //throw new NotImplementedException();
+            return _myList.OrderByDescending(c => c.GetAverageRating).Take(3);
             
         }
 
@@ -55,11 +54,18 @@ namespace RestaurantReviewsLibrary.Models
         {
             // Intends to get data from serialized data, and populate the list of restaurants
             // TODO: probably shouldn't be here? Delete?
-            Dummy d = new Dummy();
-            foreach (var data in d.GetRestaruantData())
+            if (File.Exists(xmlFilename))
             {
-                AddRestaurant((string)data[0], (string)data[1]);
+
+            } else
+            {
+                Dummy d = new Dummy();
+                foreach (var data in d.GetRestaruantData())
+                {
+                    AddRestaurant((string)data[0], (string)data[1]);
+                }
             }
+            
 
         }
 
@@ -77,7 +83,6 @@ namespace RestaurantReviewsLibrary.Models
         public void GetData()
         {
             //TODO: Make work with Serialized data, or database
-            if (File.Exists())
             throw new NotImplementedException();
         }
 
