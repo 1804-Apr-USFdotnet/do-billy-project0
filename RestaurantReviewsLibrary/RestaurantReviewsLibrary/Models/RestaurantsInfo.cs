@@ -113,9 +113,13 @@ namespace RestaurantReviewsLibrary.Models
             throw new NotImplementedException();
         }
 
-        public IEnumerable<IRestaurantInfo> GetRestaurant(string name)
+        public IRestaurantInfo GetRestaurant(string name)
         {
-            var obj = _myList.FindAll(c => c.Name.StartsWith(name));
+            var obj = _myList.Find(c => c.Name == name);
+            if (obj == null)
+            {
+                return null;
+            }
             return obj;
         }
 
@@ -128,7 +132,8 @@ namespace RestaurantReviewsLibrary.Models
         public IEnumerable<IRestaurantInfo> SearchRestaurant(string searchQuery)
         {
             //TODO: implement
-            throw new NotImplementedException();
+            var obj = _myList.FindAll(c => c.Name.StartsWith(searchQuery));
+            return obj;
         }
     }
 }

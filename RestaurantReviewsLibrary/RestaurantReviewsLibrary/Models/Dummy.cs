@@ -61,9 +61,5 @@ namespace RestaurantReviewsLibrary.Models
             return _myReviewList;
         }
 
-        public void OutputSerialzedData()
-        {
-            //TODO: implement
-        }
     }
 }

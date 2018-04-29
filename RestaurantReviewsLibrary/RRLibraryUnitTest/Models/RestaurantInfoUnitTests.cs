@@ -21,7 +21,6 @@ namespace RestaurantReviewsLibrary.Models.Tests
 
             Assert.AreEqual(expName, testObj.Name);
             Assert.AreEqual(expLocation, testObj.Location);
-            Assert.IsNotNull(testObj.Id);
         }
 
         [TestMethod()]
@@ -64,10 +63,8 @@ namespace RestaurantReviewsLibrary.Models.Tests
             string expDesc = "";
             RestaurantInfo rest = new RestaurantInfo("name", "loc");
 
-            int revId = rest.SubmitReview(expReviewerName, expRating);
+            rest.SubmitReview(expReviewerName, expRating);
             
-
-            Assert.IsTrue(revId > 0);
             Assert.IsTrue(rest.ReviewCount > 0);
         }
 
@@ -104,7 +101,6 @@ namespace RestaurantReviewsLibrary.Models.Tests
             foreach (var review in l)
             {
                 Assert.AreEqual(review.ReviewerName.Length, 9);
-                Assert.AreEqual(review.RestaurantId, rest.Id);
             }
             Assert.IsTrue(l.Count() == 05);
         }

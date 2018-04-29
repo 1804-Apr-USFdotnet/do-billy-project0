@@ -12,9 +12,17 @@ namespace RestaurantReviewsLibrary.Models.Tests
     public class RestaurantsInfoUnitTests
     {
         [TestMethod()]
-        public void RestaurantsInfoTest()
+        public void RestaurantsInfoConstructorTest()
         {
-            Assert.Fail();
+            RestaurantsInfo infoObj = new RestaurantsInfo();
+            int expected = 7;
+            int expectedReviewCount = 4;
+
+            var actual = infoObj.ListOfRestaurants.Count();
+            int actualReviewCount = infoObj.ListOfRestaurants.ElementAt(4).ReviewCount;
+
+            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expectedReviewCount, actualReviewCount);
         }
 
         [TestMethod()]
