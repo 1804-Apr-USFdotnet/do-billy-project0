@@ -26,28 +26,28 @@ namespace RestaurantReviewsLibrary.Models
             _myRestaurantList.Add(new List<object> { "Pizza Place", "Tallahassee" });
 
             // Pizza Place in Tampa has 3 reviews, avg rating of 2.66667~
-            _myReviewList.Add(new List<object> { 1, "Piper Doe" });
-            _myReviewList.Add(new List<object> { 3, "Penelope Doe", "It's pizza." });
-            _myReviewList.Add(new List<object> { 4, "Pepper Potts" });
+            _myReviewList.Add(new List<object> {0, 1, "Piper Doe" });
+            _myReviewList.Add(new List<object> {0, 3, "Penelope Doe", "It's pizza." });
+            _myReviewList.Add(new List<object> {0, 4, "Pepper Potts" });
             // Mission BBQ has 2 reviews, avgrating of 3
-            _myReviewList.Add(new List<object> { 4, "Mary Jane", "Pretty good BBQ." });
-            _myReviewList.Add(new List<object> { 2, "Moses", "Decent food, but way too expensive." });
+            _myReviewList.Add(new List<object> {1, 4, "Mary Jane", "Pretty good BBQ." });
+            _myReviewList.Add(new List<object> {1, 2, "Moses", "Decent food, but way too expensive." });
             // Wendys has 1 review, avgrating of 3
-            _myReviewList.Add(new List<object> { 3, "Wario", "WAAAAAHHHAAAAHAAAAHHH" });
+            _myReviewList.Add(new List<object> {2, 3, "Wario", "WAAAAAHHHAAAAHAAAAHHH" });
             // Franklin BBQ has 2 reviews, avgrating of 5
-            _myReviewList.Add(new List<object> { 5, "Franklin", "THE BEST bbq in the world!!!!" });
-            _myReviewList.Add(new List<object> { 5, "Fartso Mcgee", "Long lines, but worth the wait." });
+            _myReviewList.Add(new List<object> {3, 5, "Franklin", "THE BEST bbq in the world!!!!" });
+            _myReviewList.Add(new List<object> {3, 5, "Fartso Mcgee", "Long lines, but worth the wait." });
             // Chuck E Cheese has 4 reviews, avgrating of 1.25
-            _myReviewList.Add(new List<object> { 1, "Chuuni Byou" });
-            _myReviewList.Add(new List<object> { 2, "Child Name", "PIZZAGAMESPIZZAGAMESPIZZAGAMES" });
-            _myReviewList.Add(new List<object> { 1, "Check", "Saw a huge rat, nobody else seemed to mind..." });
-            _myReviewList.Add(new List<object> { 1, "Charles" });
+            _myReviewList.Add(new List<object> {4, 1, "Chuuni Byou" });
+            _myReviewList.Add(new List<object> {4, 2, "Child Name", "PIZZAGAMESPIZZAGAMESPIZZAGAMES" });
+            _myReviewList.Add(new List<object> {4, 1, "Check", "Saw a huge rat, nobody else seemed to mind..." });
+            _myReviewList.Add(new List<object> {4, 1, "Charles" });
             // Checkershas 2 reviews, avgrating 3.5
-            _myReviewList.Add(new List<object> { 3, "Cheep Byrd", "Cheap, okay food." });
-            _myReviewList.Add(new List<object> { 4, "Cheese Burgler", "Nearly as good as my usual go-to!" });
+            _myReviewList.Add(new List<object> {5, 3, "Cheep Byrd", "Cheap, okay food." });
+            _myReviewList.Add(new List<object> {5, 4, "Cheese Burgler", "Nearly as good as my usual go-to!" });
             // Pizza Place in Tallahassee has 3 reviews, avgrating of 4
-            _myReviewList.Add(new List<object> { 4, "Tom Cruises", "Great place to host my scientology meetings." });
-            _myReviewList.Add(new List<object> { 4, "Anne Castaway" });
+            _myReviewList.Add(new List<object> {6, 4, "Tom Cruises", "Great place to host my scientology meetings." });
+            _myReviewList.Add(new List<object> {6, 4, "Anne Castaway" });
         }
 
         public List<List<object>> GetRestaruantData()
@@ -58,7 +58,7 @@ namespace RestaurantReviewsLibrary.Models
         public List<List<object>> GetReviewData()
         {
 
-            return _myRestaurantList;
+            return _myReviewList;
         }
 
         public void OutputSerialzedData()

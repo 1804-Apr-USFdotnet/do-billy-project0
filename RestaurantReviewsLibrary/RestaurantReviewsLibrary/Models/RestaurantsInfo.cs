@@ -12,7 +12,7 @@ namespace RestaurantReviewsLibrary.Models
 {
     public class RestaurantsInfo : IRestaurantsInfo
     {
-        private static string xmlFilename = @"Data\RestaurantsInfo.xml";
+        private static string xmlFilename = @"RestaurantsInfo.xml";
         // ----------
         // Properties
         // ----------
@@ -33,6 +33,7 @@ namespace RestaurantReviewsLibrary.Models
         {
             _myList = new List<RestaurantInfo>();
             GetSerializedData();
+            OutputToSerializedXml();
         }
 
         // -------
@@ -52,11 +53,9 @@ namespace RestaurantReviewsLibrary.Models
 
         public void GetSerializedData()
         {
-            // Intends to get data from serialized data, and populate the list of restaurants
-            // TODO: probably shouldn't be here? Delete?
             if (File.Exists(xmlFilename))
             {
-
+                //TODO: get data from xml file
             }
             else
             {
@@ -64,6 +63,23 @@ namespace RestaurantReviewsLibrary.Models
                 foreach (var data in d.GetRestaruantData())
                 {
                     AddRestaurant((string)data[0], (string)data[1]);
+                }
+
+                foreach (var review in d.GetReviewData())
+                {
+                    int restid = (int)review[0];
+                    string name = (string)review[2];
+                    int rating = (int)review[1];
+
+                    if (!(review.Count() > 3))
+                    {
+                        _myList[restid].SubmitReview(name, rating);
+                    }
+                    else
+                    {
+                        _myList[restid].SubmitReview(name, rating, (string)review[3]);
+                    }
+                    
                 }
             }
             
@@ -73,11 +89,10 @@ namespace RestaurantReviewsLibrary.Models
         {
             if (!File.Exists(xmlFilename))
             {
-                XmlSerializer x = new XmlSerializer(this.GetType());
+                XmlSerializer x = new XmlSerializer(_myList.GetType());
                 TextWriter writer = new StreamWriter(xmlFilename);
-                x.Serialize(writer, this);
+                x.Serialize(writer, _myList);
             }
-            
         }
 
         public void GetData()
@@ -98,16 +113,10 @@ namespace RestaurantReviewsLibrary.Models
             throw new NotImplementedException();
         }
 
-        public IRestaurantInfo GetRestaurantDetail(int id)
+        public IEnumerable<IRestaurantInfo> GetRestaurant(string name)
         {
-            //TODO: implement
-            throw new NotImplementedException();
-        }
-
-        public IRestaurantInfo GetRestaurantDetail(string name)
-        {
-            //TODO: implement
-            throw new NotImplementedException();
+            var obj = _myList.FindAll(c => c.Name.StartsWith(name));
+            return obj;
         }
 
         public IEnumerable<IReview> GetAllReviews()
@@ -116,7 +125,7 @@ namespace RestaurantReviewsLibrary.Models
             throw new NotImplementedException();
         }
 
-        public IRestaurantInfo SearchRestaurant(string searchQuery)
+        public IEnumerable<IRestaurantInfo> SearchRestaurant(string searchQuery)
         {
             //TODO: implement
             throw new NotImplementedException();

@@ -10,9 +10,8 @@ namespace RestaurantReviewsLibrary.Interfaces
     {
         IEnumerable<IRestaurantsInfo> GetTopRestaurants(int n);
         IEnumerable<IRestaurantInfo> GetAllRestaurants();
-        IRestaurantInfo GetRestaurantDetail(int id);
-        IRestaurantInfo GetRestaurantDetail(string name);
+        IEnumerable<IRestaurantInfo> GetRestaurant(string name);
         IEnumerable<IReview> GetAllReviews();
-        IRestaurantInfo SearchRestaurant(string searchQuery);
+        IEnumerable<IRestaurantInfo> SearchRestaurant(string searchQuery);
     }
 }

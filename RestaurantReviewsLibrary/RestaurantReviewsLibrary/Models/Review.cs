@@ -11,8 +11,6 @@ namespace RestaurantReviewsLibrary.Models
     [Serializable]
     public class Review : IReview
     {
-        // fields
-        private static int idCount = 1;
 
         // properties
         public int Rating { get; }
@@ -23,10 +21,8 @@ namespace RestaurantReviewsLibrary.Models
         // Constructors
         private Review() { /* do not want default constrcutor */ }
 
-        public Review(int rating, int restId, string name, DateTime time, string description = "")
+        public Review(int rating, string name, DateTime time, string description = "")
         {
-            ReviewId = idCount++;
-            RestaurantId = restId;
             if (rating <= 0)
             {
                 Rating = 0;

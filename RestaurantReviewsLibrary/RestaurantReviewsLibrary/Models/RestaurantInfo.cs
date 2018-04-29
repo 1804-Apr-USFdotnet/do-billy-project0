@@ -47,16 +47,14 @@ namespace RestaurantReviewsLibrary.Models
 
         public RestaurantInfo(string name, string loc) : base(name, loc)
         {
-            Id = idCount++;
             ListOfReviews = new List<IReview>();
         }
 
         // Methods
-        public int SubmitReview(string name, int rating, string description = "")
+        public void SubmitReview(string name, int rating, string description = "")
         {
-            Review r = new Review(rating, this.Id, name, DateTime.Now, description);
+            Review r = new Review(rating, name, DateTime.Now, description);
             ListOfReviews.Add(r);
-            return r.ReviewId;
         }
 
         public IEnumerable<IReview> GetAllReviews()
