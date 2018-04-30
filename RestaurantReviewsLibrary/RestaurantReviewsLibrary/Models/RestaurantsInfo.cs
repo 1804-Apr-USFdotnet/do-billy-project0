@@ -45,13 +45,7 @@ namespace RestaurantReviewsLibrary.Models
             _myList.Add(new RestaurantInfo(name, loc));
         }
 
-        public IEnumerable<IRestaurantInfo> GetTopAverageRatings()
-        {
-            return _myList.OrderByDescending(c => c.GetAverageRating).Take(3);
-
-        }
-
-        public void GetSerializedData()
+        private void GetSerializedData()
         {
             if (File.Exists(xmlFilename))
             {
@@ -104,6 +98,11 @@ namespace RestaurantReviewsLibrary.Models
             return _myList.OrderByDescending(c => c.GetAverageRating).Take(n);
         }
 
+        public IEnumerable<IRestaurantInfo> GetTopThreeRestaurants()
+        {
+            return GetTopRestaurants(3);
+        }
+
         public IEnumerable<IRestaurantInfo> GetAllRestaurants()
         {
             return _myList;
@@ -121,13 +120,18 @@ namespace RestaurantReviewsLibrary.Models
 
         public IEnumerable<IReview> GetAllReviews()
         {
-            //TODO: implement
-            throw new NotImplementedException();
+            List<Review> retList = new List<Review>();
+            foreach (var rest in _myList)
+            {
+                retList.AddRange(rest.ListOfReviews);
+            }
+            return retList;
         }
 
         public IEnumerable<IRestaurantInfo> SearchRestaurant(string searchQuery)
         {
-            var obj = _myList.FindAll(c => c.Name.StartsWith(searchQuery));
+            StringComparison comparison = StringComparison.InvariantCultureIgnoreCase;
+            var obj = _myList.FindAll(c => c.Name.StartsWith(searchQuery, comparison));
             return obj;
         }
     }

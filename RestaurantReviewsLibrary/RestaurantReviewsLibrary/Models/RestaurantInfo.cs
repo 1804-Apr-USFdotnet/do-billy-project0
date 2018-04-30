@@ -41,6 +41,8 @@ namespace RestaurantReviewsLibrary.Models
             }
         }
 
+        public int RestaurantId { get; set; }
+
         // Constructors
         private RestaurantInfo()
         {
@@ -61,8 +63,6 @@ namespace RestaurantReviewsLibrary.Models
 
         public IEnumerable<IReview> GetAllReviews()
         {
-            // copy of ListOfReviews?
-            // ListOfReviews is private
             return ListOfReviews;
         }
     }

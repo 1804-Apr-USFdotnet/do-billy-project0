@@ -42,7 +42,7 @@ namespace RestaurantReviewsLibrary.Models
             _myReviewList.Add(new List<object> {4, 2, "Child Name", "PIZZAGAMESPIZZAGAMESPIZZAGAMES" });
             _myReviewList.Add(new List<object> {4, 1, "Check", "Saw a huge rat, nobody else seemed to mind..." });
             _myReviewList.Add(new List<object> {4, 1, "Charles" });
-            // Checkershas 2 reviews, avgrating 3.5
+            // Checkers has 2 reviews, avgrating 3.5
             _myReviewList.Add(new List<object> {5, 3, "Cheep Byrd", "Cheap, okay food." });
             _myReviewList.Add(new List<object> {5, 4, "Cheese Burgler", "Nearly as good as my usual go-to!" });
             // Pizza Place in Tallahassee has 3 reviews, avgrating of 4

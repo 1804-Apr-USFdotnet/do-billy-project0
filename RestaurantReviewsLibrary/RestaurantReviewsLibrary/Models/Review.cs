@@ -12,6 +12,8 @@ namespace RestaurantReviewsLibrary.Models
     {
         // properties
         public int Rating { get; set; }
+        public int ReviewId { get; set; }
+        public int RestaurantId { get; set; }
         public string ReviewerName { get; set; }
         public string Description { get; set; }
         public DateTime DateCreated { get; set; }
