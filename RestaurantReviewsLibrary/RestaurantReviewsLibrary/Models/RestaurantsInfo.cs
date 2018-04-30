@@ -99,12 +99,6 @@ namespace RestaurantReviewsLibrary.Models
             }
         }
 
-        public void GetData()
-        {
-            //TODO: Make work with Serialized data, or database
-            throw new NotImplementedException();
-        }
-
         public IEnumerable<IRestaurantInfo> GetTopRestaurants(int n)
         {
             return _myList.OrderByDescending(c => c.GetAverageRating).Take(n);
