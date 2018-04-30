@@ -8,7 +8,7 @@ namespace RestaurantReviewsLibrary.Interfaces
 {
     public interface IRestaurantsInfo
     {
-        IEnumerable<IRestaurantsInfo> GetTopRestaurants(int n);
+        IEnumerable<IRestaurantInfo> GetTopRestaurants(int n);
         IEnumerable<IRestaurantInfo> GetAllRestaurants();
         IRestaurantInfo GetRestaurant(string name);
         IEnumerable<IReview> GetAllReviews();

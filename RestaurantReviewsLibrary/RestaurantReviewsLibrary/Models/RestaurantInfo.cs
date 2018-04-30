@@ -3,18 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Runtime.Serialization;
 
 using RestaurantReviewsLibrary.Abstracts;
 using RestaurantReviewsLibrary.Interfaces;
+using System.Xml.Serialization;
 
 namespace RestaurantReviewsLibrary.Models
 {
-    [DataContract]
     public class RestaurantInfo : Business, IRestaurantInfo
     { 
-        [DataMember]
-        private List<IReview> ListOfReviews;
+        [XmlArray]
+        public List<Review> ListOfReviews;
 
         // Properties
         public double GetAverageRating
@@ -43,11 +42,14 @@ namespace RestaurantReviewsLibrary.Models
         }
 
         // Constructors
-        private RestaurantInfo(): base() { /* do not implement */ }
+        private RestaurantInfo()
+        {
+
+        }
 
         public RestaurantInfo(string name, string loc) : base(name, loc)
         {
-            ListOfReviews = new List<IReview>();
+            ListOfReviews = new List<Review>();
         }
 
         // Methods
