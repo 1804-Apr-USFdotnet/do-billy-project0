@@ -55,7 +55,7 @@ INSERT INTO Products
 VALUES ('iPhone', 200);
 
 INSERT INTO Customers
-VALUES('Tina', 'Smith');
+VALUES('Tina', 'Smith', '');
 
 --create order
 INSERT INTO Orders
@@ -63,7 +63,11 @@ VALUES(4, 4);
 
 -- report all orders by Tina Smith
 SELECT ID, ProductID, CustomerID 
-FROM Orders;
+FROM Orders
+WHERE CustomerID = (
+	SELECT ID
+	FROM Customers
+	WHERE Firstname = 'Tina' AND Lastname = 'Smith');
 
 SELECT COUNT(*)
 FROM Orders
