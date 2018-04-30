@@ -30,6 +30,7 @@ Firstname nvarchar(40) not null,
 Lastname nvarchar(40) not null,
 CardNumber nvarchar(20)
 );
+GO
 
 -- Products - insert three rows
 INSERT INTO Products VALUES 
@@ -45,4 +46,37 @@ INSERT INTO Customers VALUES
 
 -- Orders - insert three rows
 INSERT INTO Orders VALUES 
-(),(),();
+(2, 1),
+(1, 2),
+(3, 3);
+
+--other reqs
+INSERT INTO Products
+VALUES ('iPhone', 200);
+
+INSERT INTO Customers
+VALUES('Tina', 'Smith');
+
+--create order
+INSERT INTO Orders
+VALUES(4, 4);
+
+-- report all orders by Tina Smith
+SELECT ID, ProductID, CustomerID 
+FROM Orders;
+
+SELECT COUNT(*)
+FROM Orders
+WHERE ProductID = 
+	(SELECT ID
+	FROM Products
+	WHERE [Name] = 'iPhone');
+
+-- increase iphone price to 250
+UPDATE Products
+SET Price = 250
+WHERE [Name] = 'iPhone';
+
+SELECT * FROM Products;
+SELECT * FROM Customers;
+SELECT * FROM Orders;
