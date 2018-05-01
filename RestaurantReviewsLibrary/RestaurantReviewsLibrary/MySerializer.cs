@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace RestaurantReviewsLibrary
 {
-    class Serializer
+    class MySerializer
     {
+        public static void Serialize<T>()
+        {
+
+        }
+
+        public static void Deserialize<T>()
+        {
+
+        }
+
     }
 }

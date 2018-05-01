@@ -34,8 +34,6 @@ namespace RestaurantReviewsLibrary.Models
         public RestaurantsInfo()
         {
             _myList = new List<RestaurantInfo>();
-            var tester = new RRCrud();
-            tester.CreateRestaurant("Test Restaurant", "Earth");
             GetSerializedData();
             OutputToSerializedXml();
         }
