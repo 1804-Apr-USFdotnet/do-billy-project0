@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 using RestaurantReviewsLibrary.Interfaces;
 using System.Xml.Serialization;
 using System.IO;
+using DataAccessLayer;
 
 namespace RestaurantReviewsLibrary.Models
 {
     public class RestaurantsInfo : IRestaurantsInfo
     {
         private static string xmlFilename = @"RestaurantsInfo.xml";
+        private static RRCrud test = new RRCrud();
         // ----------
         // Properties
         // ----------
@@ -32,6 +34,8 @@ namespace RestaurantReviewsLibrary.Models
         public RestaurantsInfo()
         {
             _myList = new List<RestaurantInfo>();
+            var tester = new RRCrud();
+            tester.CreateRestaurant("Test Restaurant", "Earth");
             GetSerializedData();
             OutputToSerializedXml();
         }
