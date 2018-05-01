@@ -35,7 +35,7 @@ namespace RestaurantReviewsLibrary.Models
         {
             _myList = new List<RestaurantInfo>();
             GetSerializedData();
-            OutputToSerializedXml();
+            MySerializer.Serialize(ref _myList);
         }
 
         // -------
@@ -51,11 +51,7 @@ namespace RestaurantReviewsLibrary.Models
         {
             if (File.Exists(xmlFilename))
             {
-                TextReader txtReader = new StreamReader(xmlFilename);
-                XmlSerializer x = new XmlSerializer(_myList.GetType());
-                _myList = (List<RestaurantInfo>)x.Deserialize(txtReader);
-
-                txtReader.Close();
+                MySerializer.Deserialize(ref _myList);
             }
             else
             {
@@ -83,16 +79,6 @@ namespace RestaurantReviewsLibrary.Models
                 }
             }
             
-        }
-
-        private void OutputToSerializedXml()
-        {
-            if (!File.Exists(xmlFilename))
-            {
-                XmlSerializer x = new XmlSerializer(_myList.GetType());
-                TextWriter writer = new StreamWriter(xmlFilename);
-                x.Serialize(writer, _myList);
-            }
         }
 
         public IEnumerable<IRestaurantInfo> GetTopRestaurants(int n)

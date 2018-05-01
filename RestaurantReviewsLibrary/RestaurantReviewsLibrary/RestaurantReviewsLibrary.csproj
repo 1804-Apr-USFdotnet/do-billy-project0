@@ -60,7 +60,7 @@
     <Compile Include="Models\RestaurantsInfo.cs" />
     <Compile Include="Models\Review.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Serializer.cs" />
+    <Compile Include="MySerializer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="connection.config">

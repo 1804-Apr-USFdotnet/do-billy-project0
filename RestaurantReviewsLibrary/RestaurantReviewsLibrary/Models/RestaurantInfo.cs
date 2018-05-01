@@ -14,6 +14,7 @@ namespace RestaurantReviewsLibrary.Models
     { 
         [XmlArray]
         public List<Review> ListOfReviews;
+        public int RestaurantId { get; set; }
 
         // Properties
         public double GetAverageRating
@@ -41,7 +42,7 @@ namespace RestaurantReviewsLibrary.Models
             }
         }
 
-        public int RestaurantId { get; set; }
+        
 
         // Constructors
         private RestaurantInfo()
