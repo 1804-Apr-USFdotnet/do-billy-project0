@@ -36,5 +36,15 @@ namespace RestaurantReviewsLibrary.Models
             DateCreated = time;
             Description = description;
         }
+
+        public Review(DataAccessLayer.Review dbModel)
+        {
+            Rating = dbModel.Rating;
+            ReviewId = dbModel.Id;
+            RestaurantId = dbModel.RestaurantId;
+            ReviewerName = dbModel.Username;
+            Description = dbModel.Description;
+            DateCreated = dbModel.DateCreated;
+        }
     }
 }

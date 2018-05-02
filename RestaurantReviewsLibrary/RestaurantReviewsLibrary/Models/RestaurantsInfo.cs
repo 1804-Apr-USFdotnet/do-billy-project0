@@ -14,7 +14,7 @@ namespace RestaurantReviewsLibrary.Models
     public class RestaurantsInfo : IRestaurantsInfo
     {
         private static string xmlFilename = @"RestaurantsInfo.xml";
-        private static RRCrud test = new RRCrud();
+        private static RRCrud crud = new RRCrud();
         // ----------
         // Properties
         // ----------
@@ -36,6 +36,8 @@ namespace RestaurantReviewsLibrary.Models
             _myList = new List<RestaurantInfo>();
             GetSerializedData();
             MySerializer.Serialize(ref _myList);
+
+            //OutputToRRDb();
         }
 
         // -------
@@ -49,36 +51,65 @@ namespace RestaurantReviewsLibrary.Models
 
         private void GetSerializedData()
         {
-            if (File.Exists(xmlFilename))
+            var restList = crud.GetAllRestarurants();
+            var reviewList = crud.GetAllReviews();
+            foreach (var restaurant in crud.GetAllRestarurants())
             {
-                MySerializer.Deserialize(ref _myList);
-            }
-            else
-            {
-                Dummy d = new Dummy();
-                foreach (var data in d.GetRestaruantData())
+                var restInfo = new RestaurantInfo(restaurant);
+                var shortList = reviewList.Where((r) => r.RestaurantId == restaurant.Id).ToList();
+                foreach (var review in shortList)
                 {
-                    AddRestaurant((string)data[0], (string)data[1]);
+                    restInfo.ListOfReviews.Add( new Review(review));
                 }
+                _myList.Add(restInfo);
+            }
+            //if (File.Exists(xmlFilename))
+            //{
+            //    MySerializer.Deserialize(ref _myList);
+            //}
+            //else
+            //{
+            //    Dummy d = new Dummy();
+            //    foreach (var data in d.GetRestaruantData())
+            //    {
+            //        AddRestaurant((string)data[0], (string)data[1]);
+            //    }
 
-                foreach (var review in d.GetReviewData())
-                {
-                    int restid = (int)review[0];
-                    string name = (string)review[2];
-                    int rating = (int)review[1];
+            //    foreach (var review in d.GetReviewData())
+            //    {
+            //        int restid = (int)review[0];
+            //        string name = (string)review[2];
+            //        int rating = (int)review[1];
 
-                    if (!(review.Count() > 3))
-                    {
-                        _myList[restid].SubmitReview(name, rating);
-                    }
-                    else
-                    {
-                        _myList[restid].SubmitReview(name, rating, (string)review[3]);
-                    }
+            //        if (!(review.Count() > 3))
+            //        {
+            //            _myList[restid].SubmitReview(name, rating);
+            //        }
+            //        else
+            //        {
+            //            _myList[restid].SubmitReview(name, rating, (string)review[3]);
+            //        }
                     
+            //    }
+            //}
+            
+        }
+
+        private void OutputToRRDb()
+        {
+            foreach(var item in _myList)
+            {
+                int restId = crud.CreateRestaurant(item.Name, item.Location);
+                item.RestaurantId = restId;
+
+                foreach (var review in item.ListOfReviews)
+                {
+                    review.RestaurantId = restId;
+                    int reviewId = crud.CreateReview(review.Rating, review.ReviewerName,
+                        review.Description, review.DateCreated, restId);
+                    review.ReviewId = reviewId;
                 }
             }
-            
         }
 
         public IEnumerable<IRestaurantInfo> GetTopRestaurants(int n)

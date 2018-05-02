@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +23,8 @@ namespace DataAccessLayer
             restaurant.Location = loc;
 
             db.Restaurants.Add(restaurant);
-            return db.SaveChanges();
+            db.SaveChanges();
+            return restaurant.Id;
         }
 
         public int CreateReview(int rating, string user, string desc, DateTime created, int restid) 
@@ -36,32 +38,31 @@ namespace DataAccessLayer
             review.RestaurantId = restid;
 
             db.Reviews.Add(review);
-            return db.SaveChanges();
+            db.SaveChanges();
+            return review.Id;
         }
 
         //Read
-        public Restaurant ReadRestaurant()
+        public Restaurant ReadRestaurant(int id)
         {
-            //TODO: Implement
-            throw new NotImplementedException();
+            //TODO: test
+            return db.Restaurants.Find(id);
         }
 
         public IEnumerable<Restaurant> GetAllRestarurants()
         {
-            //TODO: Implement
-            throw new NotImplementedException();
+            return db.Restaurants.ToList();
         }
 
-        public Review ReadReview()
+        public Review ReadReview(int id)
         {
-            //TODO: Implement
-            throw new NotImplementedException();
+            // test
+            return db.Reviews.Find(id);
         }
 
-        public IEnumerable<Restaurant> GetAllReviews()
+        public IEnumerable<Review> GetAllReviews()
         {
-            //TODO: Implement
-            throw new NotImplementedException();
+            return db.Reviews.ToList();
         }
 
         // Update

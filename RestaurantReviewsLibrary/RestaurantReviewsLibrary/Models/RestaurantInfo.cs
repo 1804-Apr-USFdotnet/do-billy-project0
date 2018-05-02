@@ -55,6 +55,14 @@ namespace RestaurantReviewsLibrary.Models
             ListOfReviews = new List<Review>();
         }
 
+        public RestaurantInfo(DataAccessLayer.Restaurant dbModel)
+        {
+            Name = dbModel.Name;
+            Location = dbModel.Location;
+            RestaurantId = dbModel.Id;
+            ListOfReviews = new List<Review>();
+        }
+
         // Methods
         public void SubmitReview(string name, int rating, string description = "")
         {
