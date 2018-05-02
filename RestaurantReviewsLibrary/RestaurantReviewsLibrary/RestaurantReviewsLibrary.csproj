@@ -63,9 +63,6 @@
     <Compile Include="MySerializer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="connection.config">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

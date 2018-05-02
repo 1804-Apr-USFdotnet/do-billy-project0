@@ -23,10 +23,39 @@ namespace PresentationLayer
                 string maincommand = sa[0];
                 Console.WriteLine(maincommand);
                 InputCommand n = (InputCommand)allowedCommands.IndexOf(maincommand);
+
+                switch (n)
+                {
+                    case InputCommand.Show:
+                        break;
+                    case InputCommand.Details:
+                        break;
+                    case InputCommand.Find:
+                        break;
+                    default:
+                        return InputCommand.Unknown;
+
+                }
+
                 return n;
             }
             
             return InputCommand.Unknown;
+        }
+
+        private static void HandleShowCommand(IEnumerable<string> otherInput)
+        {
+
+        }
+
+        private static void HandleDetailsCommand()
+        {
+
+        }
+
+        private static void HandleFindCommand(IEnumerable<string> otherInput)
+        {
+
         }
 
         private static string SanitizeInput(string input)

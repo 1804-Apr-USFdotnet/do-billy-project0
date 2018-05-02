@@ -4,13 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using RestaurantReviewsLibrary;
+using RestaurantReviewsLibrary.Interfaces;
+using RestaurantReviewsLibrary.Models;
+
 namespace PresentationLayer
 {
     class Program
     {
+        static List<IRestaurantInfo> currentList;
+        static RestaurantsInfo rinfo;
+
         static void Main(string[] args)
         {
             string inputString = "";
+            rinfo = new RestaurantsInfo();
 
             while (inputString != "quit")
             {
@@ -18,6 +26,8 @@ namespace PresentationLayer
 
                 inputString = Console.ReadLine();
                 Console.Clear();
+
+                //DisplayTop3();
 
                 InputHandler.DetermineCommand(inputString);
                 //Console.WriteLine();
@@ -38,6 +48,15 @@ namespace PresentationLayer
                 "\t\tquit\n";
             Console.WriteLine(commandstr);
             Console.Write("input >>> ");
+        }
+
+        static void DisplayTop3()
+        {
+            Console.WriteLine("Restaurant Name\t|| Average Rating || Number of Reviews");
+            foreach(var rest in rinfo.GetTopThreeRestaurants())
+            {
+                Console.WriteLine(rest.Name + "|| " + rest.GetAverageRating + "|| " + rest.ReviewCount);
+            }
         }
     }
 }
