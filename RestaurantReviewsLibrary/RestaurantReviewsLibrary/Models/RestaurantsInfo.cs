@@ -37,7 +37,7 @@ namespace RestaurantReviewsLibrary.Models
             GetSerializedData();
             MySerializer.Serialize(ref _myList);
 
-            //OutputToRRDb();
+            OutputToRRDb();
         }
 
         // -------
@@ -63,40 +63,16 @@ namespace RestaurantReviewsLibrary.Models
                 }
                 _myList.Add(restInfo);
             }
-            //if (File.Exists(xmlFilename))
-            //{
-            //    MySerializer.Deserialize(ref _myList);
-            //}
-            //else
-            //{
-            //    Dummy d = new Dummy();
-            //    foreach (var data in d.GetRestaruantData())
-            //    {
-            //        AddRestaurant((string)data[0], (string)data[1]);
-            //    }
-
-            //    foreach (var review in d.GetReviewData())
-            //    {
-            //        int restid = (int)review[0];
-            //        string name = (string)review[2];
-            //        int rating = (int)review[1];
-
-            //        if (!(review.Count() > 3))
-            //        {
-            //            _myList[restid].SubmitReview(name, rating);
-            //        }
-            //        else
-            //        {
-            //            _myList[restid].SubmitReview(name, rating, (string)review[3]);
-            //        }
-                    
-            //    }
-            //}
             
         }
 
         private void OutputToRRDb()
         {
+            //TODO: figure out how to NOT input data if data already exists in DB
+            if (crud.GetAllRestarurants().Count() > 10)
+            {
+                return;
+            }
             foreach(var item in _myList)
             {
                 int restId = crud.CreateRestaurant(item.Name, item.Location);
