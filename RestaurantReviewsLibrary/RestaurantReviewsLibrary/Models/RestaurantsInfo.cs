@@ -13,7 +13,6 @@ namespace RestaurantReviewsLibrary.Models
 {
     public class RestaurantsInfo : IRestaurantsInfo
     {
-        private static string xmlFilename = @"RestaurantsInfo.xml";
         private static RRCrud crud = new RRCrud();
         // ----------
         // Properties
