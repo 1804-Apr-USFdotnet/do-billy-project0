@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using RestaurantReviewsLibrary;
 using RestaurantReviewsLibrary.Interfaces;
 using RestaurantReviewsLibrary.Models;
+using NLog;
 
 namespace PresentationLayer
 {
@@ -14,11 +15,13 @@ namespace PresentationLayer
     {
         static List<IRestaurantInfo> currentList;
         static RestaurantsInfo rinfo;
+        static Logger logHandler;
 
         static void Main(string[] args)
         {
             string inputString = "";
             rinfo = new RestaurantsInfo();
+            logHandler = LogManager.GetLogger("f");
 
             while (inputString != "quit")
             {
@@ -29,6 +32,7 @@ namespace PresentationLayer
 
                 //DisplayTop3();
 
+                logHandler.Info(inputString);
                 InputHandler.DetermineCommand(inputString);
                 //Console.WriteLine();
             }
